@@ -1,0 +1,24 @@
+import java.util.Scanner;
+
+public class Ejercicio7 {
+    public static void main(String[] args) {
+        Scanner teclado = new Scanner(System.in);
+        int[] A = new int[10];
+
+        System.out.println("Ingrese 10 números:");
+        for(int i=0; i<10; i++){
+            A[i] = teclado.nextInt();
+        }
+
+        System.out.print("Números pares: ");
+        for(int i=0; i<10; i++){
+            if(A[i] % 2 == 0) System.out.print(A[i] + " ");
+        }
+
+        System.out.print("\nNúmeros impares: ");
+        for(int i=0; i<10; i++){
+            if(A[i] % 2 != 0) System.out.print(A[i] + " ");
+        }
+        teclado.close();
+    }
+}

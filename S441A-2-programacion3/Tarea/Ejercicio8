@@ -1,0 +1,30 @@
+import java.util.Scanner;
+
+public class Ejercicio8 {
+    public static void main(String[] args) {
+        Scanner teclado = new Scanner(System.in);
+        int[] numeros = new int[30];
+
+        System.out.println("Ingrese 30 números:");
+        for(int i=0; i<30; i++){
+            numeros[i] = teclado.nextInt();
+        }
+
+        int mayor = numeros[0], menor = numeros[0];
+        int repMayor = 0, repMenor = 0;
+
+        for(int i=0; i<30; i++){
+            if(numeros[i] > mayor) mayor = numeros[i];
+            if(numeros[i] < menor) menor = numeros[i];
+        }
+
+        for(int i=0; i<30; i++){
+            if(numeros[i] == mayor) repMayor++;
+            if(numeros[i] == menor) repMenor++;
+        }
+
+        System.out.println("Mayor: " + mayor + " (repite " + repMayor + " veces)");
+        System.out.println("Menor: " + menor + " (repite " + repMenor + " veces)");
+        teclado.close();
+    }
+}
