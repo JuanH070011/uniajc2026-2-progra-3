@@ -1,0 +1,22 @@
+import java.util.ArrayDeque;
+
+public class Problema105 {
+
+    public static void main(String[] args) {
+
+        ArrayDeque<Integer> bicola = new ArrayDeque<>();
+
+        bicola.addFirst(10);
+        bicola.addLast(20);
+        bicola.addFirst(5);
+        bicola.addLast(30);
+
+        System.out.println("Contenido: " + bicola);
+
+        System.out.println("Eliminar inicio: " + bicola.removeFirst());
+
+        System.out.println("Eliminar final: " + bicola.removeLast());
+
+        System.out.println("Bicola final: " + bicola);
+    }
+}

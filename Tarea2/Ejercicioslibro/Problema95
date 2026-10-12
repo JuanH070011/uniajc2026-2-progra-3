@@ -1,0 +1,32 @@
+import java.util.Stack;
+import java.util.Scanner;
+
+public class Problema95 {
+
+    public static void main(String[] args) {
+
+        Scanner teclado = new Scanner(System.in);
+
+        System.out.print("Ingrese un número: ");
+        String numero = teclado.nextLine();
+
+        Stack<Character> pila = new Stack<>();
+
+        for(int i = 0; i < numero.length(); i++) {
+            pila.push(numero.charAt(i));
+        }
+
+        String inverso = "";
+
+        while(!pila.empty()) {
+            inverso += pila.pop();
+        }
+
+        if(numero.equals(inverso))
+            System.out.println("Es capicúa");
+        else
+            System.out.println("No es capicúa");
+
+        teclado.close();
+    }
+}

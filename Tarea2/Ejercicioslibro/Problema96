@@ -1,0 +1,46 @@
+import java.util.Stack;
+import java.util.Scanner;
+
+public class Problema96 {
+
+    public static void main(String[] args) {
+
+        Scanner teclado = new Scanner(System.in);
+
+        System.out.print("Ingrese una expresión: ");
+        String expresion = teclado.nextLine();
+
+        Stack<Character> pila = new Stack<>();
+
+        boolean correcta = true;
+
+        for(int i = 0; i < expresion.length(); i++) {
+
+            char c = expresion.charAt(i);
+
+            if(c == '(')
+                pila.push(c);
+
+            if(c == ')') {
+
+                if(pila.empty()) {
+                    correcta = false;
+                    break;
+                }
+
+                pila.pop();
+            }
+        }
+
+        if(!pila.empty())
+            correcta = false;
+
+        if(correcta)
+            System.out.println("Paréntesis correctos");
+        else
+            System.out.println("Paréntesis incorrectos");
+
+        teclado.close();
+    }
+}
+`

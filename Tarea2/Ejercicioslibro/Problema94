@@ -1,0 +1,27 @@
+import java.util.Stack;
+import java.util.Scanner;
+
+public class Problema94 {
+
+    public static void main(String[] args) {
+
+        Scanner teclado = new Scanner(System.in);
+        Stack<Integer> pila = new Stack<>();
+
+        int suma = 0;
+
+        System.out.println("Ingrese 5 números:");
+
+        for(int i = 0; i < 5; i++) {
+            pila.push(teclado.nextInt());
+        }
+
+        while(!pila.empty()) {
+            suma += pila.pop();
+        }
+
+        System.out.println("La suma es: " + suma);
+
+        teclado.close();
+    }
+}
