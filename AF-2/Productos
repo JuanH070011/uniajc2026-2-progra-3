@@ -1,0 +1,14 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class Productos {
+    public static void main(String[] args) {
+        List<String> productos = new ArrayList<>();
+
+        productos.add("Arroz");
+        productos.add("Leche");
+        productos.add("Pan");
+
+        System.out.println(productos);
+    }
+}

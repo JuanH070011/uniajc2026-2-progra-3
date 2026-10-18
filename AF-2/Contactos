@@ -1,0 +1,14 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class Contactos {
+    public static void main(String[] args) {
+        List<String> contactos = new ArrayList<>();
+
+        contactos.add("Ana");
+        contactos.add("Pedro");
+        contactos.add("Luisa");
+
+        System.out.println(contactos);
+    }
+}
