@@ -1,0 +1,49 @@
+package modelo;
+
+import estructuras.ListaEnlazada;
+
+public class Estudiante extends Persona {
+
+    private int semestre;
+
+    private Double[][] notas =
+            new Double[10][20];
+
+    private ListaEnlazada<String>
+            historialMaterias;
+
+    public Estudiante(String id,
+                      String nombre,
+                      String email,
+                      int semestre) {
+
+        super(id,nombre,email);
+
+        this.semestre = semestre;
+
+        historialMaterias =
+                new ListaEnlazada<>();
+    }
+
+    public int getSemestre() {
+        return semestre;
+    }
+
+    public Double[][] getNotas() {
+        return notas;
+    }
+
+    public ListaEnlazada<String>
+    getHistorialMaterias() {
+
+        return historialMaterias;
+    }
+
+    @Override
+    public void mostrarInformacion() {
+
+        System.out.println(id);
+        System.out.println(nombre);
+        System.out.println(email);
+    }
+}

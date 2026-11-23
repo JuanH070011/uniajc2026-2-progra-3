@@ -1,0 +1,19 @@
+package modelo;
+
+public class OperacionEliminarEstudiante
+        extends Operacion {
+
+    @Override
+    public void deshacer() {
+
+        System.out.println(
+                "Restaurando estudiante...");
+    }
+
+    @Override
+    public void rehacer() {
+
+        System.out.println(
+                "Eliminando nuevamente...");
+    }
+}

@@ -1,0 +1,142 @@
+package modelo;
+
+import estructuras.Cola;
+import estructuras.Pila;
+
+import java.util.HashMap;
+import java.util.TreeMap;
+
+public class Universidad {
+
+    private HashMap<String, Estudiante>
+            estudiantes;
+
+    private TreeMap<String, Aula>
+            aulas;
+
+    private HashMap<String, Materia>
+            materias;
+
+    private Facultad[] facultades =
+            new Facultad[5];
+
+    private Cola<String> colaBatch;
+
+    private Pila<Operacion>
+            pilaDeshacer;
+
+    private Pila<Operacion>
+            pilaRehacer;
+
+    public Universidad() {
+
+        estudiantes = new HashMap<>();
+
+        materias = new HashMap<>();
+
+        aulas = new TreeMap<>();
+
+        colaBatch = new Cola<>();
+
+        pilaDeshacer = new Pila<>();
+
+        pilaRehacer = new Pila<>();
+    }
+
+    public void agregarEstudiante(
+            Estudiante estudiante) {
+
+        estudiantes.put(
+                estudiante.getId(),
+                estudiante);
+    }
+
+    public Estudiante buscarEstudiante(
+            String id) {
+
+        return estudiantes.get(id);
+    }
+
+    public void agregarMateria(
+            Materia materia) {
+
+        materias.put(
+                materia.getCodigo(),
+                materia);
+    }
+
+    public Materia buscarMateria(
+            String codigo) {
+
+        return materias.get(codigo);
+    }
+
+    public void agregarAula(
+            Aula aula) {
+
+        aulas.put(
+                aula.getNombre(),
+                aula);
+    }
+
+    public Aula buscarAula(
+            String nombre) {
+
+        return aulas.get(nombre);
+    }
+
+    public void registrarOperacion(
+            Operacion operacion) {
+
+        pilaDeshacer.push(operacion);
+    }
+
+    public void deshacer() {
+
+        if(!pilaDeshacer.estaVacia()) {
+
+            Operacion op =
+                    pilaDeshacer.pop();
+
+            op.deshacer();
+
+            pilaRehacer.push(op);
+        }
+    }
+
+    public void rehacer() {
+
+        if(!pilaRehacer.estaVacia()) {
+
+            Operacion op =
+                    pilaRehacer.pop();
+
+            op.rehacer();
+
+            pilaDeshacer.push(op);
+        }
+    }
+
+    public HashMap<String, Estudiante>
+    getEstudiantes() {
+
+        return estudiantes;
+    }
+
+    public HashMap<String, Materia>
+    getMaterias() {
+
+        return materias;
+    }
+
+    public TreeMap<String, Aula>
+    getAulas() {
+
+        return aulas;
+    }
+
+    public Cola<String> getColaBatch() {
+
+        return colaBatch;
+    }
+}

@@ -1,0 +1,18 @@
+package modelo;
+
+public class Operacionhorario extends Operacion {
+
+    @Override
+    public void deshacer() {
+
+        System.out.println(
+                "Deshaciendo horario...");
+    }
+
+    @Override
+    public void rehacer() {
+
+        System.out.println(
+                "Rehaciendo horario...");
+    }
+}

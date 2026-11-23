@@ -1,0 +1,8 @@
+package excepciones;
+
+public class Prerequisitonoaprobadoexception extends Exception {
+
+    public Prerequisitonoaprobadoexception(String mensaje) {
+        super(mensaje);
+    }
+}

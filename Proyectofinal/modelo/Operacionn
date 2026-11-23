@@ -1,0 +1,18 @@
+package modelo;
+
+public class Operacionn extends Operacion {
+
+    @Override
+    public void deshacer() {
+
+        System.out.println(
+                "Deshaciendo nota...");
+    }
+
+    @Override
+    public void rehacer() {
+
+        System.out.println(
+                "Rehaciendo nota...");
+    }
+}

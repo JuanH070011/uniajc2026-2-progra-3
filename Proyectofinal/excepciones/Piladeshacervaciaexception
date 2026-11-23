@@ -1,0 +1,8 @@
+package excepciones;
+
+public class Piladeshacervaciaexception extends Exception {
+
+    public Piladeshacervaciaexception(String mensaje) {
+        super(mensaje);
+    }
+}

@@ -1,0 +1,8 @@
+package excepciones;
+
+public class Cupollenoexception extends Exception {
+
+    public Cupollenoexception(String mensaje) {
+        super(mensaje);
+    }
+}

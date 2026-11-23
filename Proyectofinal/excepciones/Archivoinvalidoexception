@@ -1,0 +1,8 @@
+package excepciones;
+
+public class Archivoinvalidoexception extends Exception {
+
+    public Archivoinvalidoexception(String mensaje) {
+        super(mensaje);
+    }
+}

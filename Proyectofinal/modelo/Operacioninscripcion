@@ -1,0 +1,18 @@
+package modelo;
+
+public class Operacioninscripcion extends Operacion {
+
+    @Override
+    public void deshacer() {
+
+        System.out.println(
+                "Deshaciendo inscripcion...");
+    }
+
+    @Override
+    public void rehacer() {
+
+        System.out.println(
+                "Rehaciendo inscripcion...");
+    }
+}

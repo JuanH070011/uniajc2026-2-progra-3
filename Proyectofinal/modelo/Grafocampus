@@ -1,0 +1,71 @@
+package modelo;
+
+public class Grafocampus {
+
+    private String[] edificios;
+    private int[][] distancias;
+
+    public Grafocampus(int cantidadEdificios) {
+
+        edificios = new String[cantidadEdificios];
+        distancias = new int[cantidadEdificios][cantidadEdificios];
+    }
+
+    public void agregarEdificio(int posicion,
+                                String nombre) {
+
+        edificios[posicion] = nombre;
+    }
+
+    public void conectar(int origen,
+                         int destino,
+                         int distancia) {
+
+        distancias[origen][destino] = distancia;
+        distancias[destino][origen] = distancia;
+    }
+
+    public int[] dijkstra(int origen) {
+
+        int n = distancias.length;
+
+        int[] distancia = new int[n];
+        boolean[] visitado = new boolean[n];
+
+        for (int i = 0; i < n; i++) {
+            distancia[i] = Integer.MAX_VALUE;
+        }
+
+        distancia[origen] = 0;
+
+        for (int i = 0; i < n - 1; i++) {
+
+            int u = -1;
+
+            for (int j = 0; j < n; j++) {
+
+                if (!visitado[j] &&
+                        (u == -1 ||
+                                distancia[j] < distancia[u])) {
+
+                    u = j;
+                }
+            }
+
+            visitado[u] = true;
+
+            for (int v = 0; v < n; v++) {
+
+                if (distancias[u][v] > 0 &&
+                        distancia[u] != Integer.MAX_VALUE &&
+                        distancia[u] + distancias[u][v] < distancia[v]) {
+
+                    distancia[v] =
+                            distancia[u] + distancias[u][v];
+                }
+            }
+        }
+
+        return distancia;
+    }
+}

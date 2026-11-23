@@ -1,0 +1,45 @@
+package estructuras;
+
+public class Cola<T> {
+
+    private Nodo<T> frente;
+    private Nodo<T> fin;
+
+    public void encolar(T dato) {
+
+        Nodo<T> nuevo = new Nodo<>(dato);
+
+        if(fin == null) {
+
+            frente = nuevo;
+            fin = nuevo;
+
+            return;
+        }
+
+        fin.setSiguiente(nuevo);
+
+        fin = nuevo;
+    }
+
+    public T desencolar() {
+
+        if(frente == null) {
+            return null;
+        }
+
+        T dato = frente.getDato();
+
+        frente = frente.getSiguiente();
+
+        if(frente == null) {
+            fin = null;
+        }
+
+        return dato;
+    }
+
+    public boolean estaVacia() {
+        return frente == null;
+    }
+}
