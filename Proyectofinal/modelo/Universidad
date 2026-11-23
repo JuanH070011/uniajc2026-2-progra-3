@@ -135,8 +135,8 @@ public class Universidad {
         return aulas;
     }
 
-    public Cola<String> getColaBatch() {
+    public Cola<String> getCola() {
 
-        return colaBatch;
+        return cola;
     }
 }

@@ -1,0 +1,171 @@
+import modelo.*;
+
+import util.Consola;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Universidad universidad = new Universidad();
+
+        cargarDatosDemo(universidad);
+
+        int opcion;
+
+        do {
+
+            mostrarMenu();
+
+            opcion = Consola.leerEntero(
+                    "Seleccione una opcion: ");
+
+            switch (opcion) {
+
+                case 1:
+                    registrarEstudiante(universidad);
+                    break;
+
+                case 2:
+                    buscarEstudiante(universidad);
+                    break;
+
+                case 3:
+                    listarEstudiantes(universidad);
+                    break;
+
+                case 4:
+                    universidad.deshacer();
+                    break;
+
+                case 5:
+                    universidad.rehacer();
+                    break;
+
+                case 0:
+                    System.out.println(
+                            "Saliendo del sistema...");
+                    break;
+
+                default:
+                    System.out.println(
+                            "Opcion invalida");
+            }
+
+        } while (opcion != 0);
+    }
+
+    private static void mostrarMenu() {
+
+        System.out.println("\n====================");
+        System.out.println("PLANIFICACION ACADEMICA");
+        System.out.println("====================");
+        System.out.println("1. Registrar estudiante");
+        System.out.println("2. Buscar estudiante");
+        System.out.println("3. Listar estudiantes");
+        System.out.println("4. Deshacer");
+        System.out.println("5. Rehacer");
+        System.out.println("0. Salir");
+    }
+
+    private static void registrarEstudiante(
+            Universidad universidad) {
+
+        String id =
+                Consola.leerTexto("ID: ");
+
+        String nombre =
+                Consola.leerTexto("Nombre: ");
+
+        String email =
+                Consola.leerTexto("Email: ");
+
+        int semestre =
+                Consola.leerEntero(
+                        "Semestre: ");
+
+        Estudiante estudiante =
+                new Estudiante(
+                        id,
+                        nombre,
+                        email,
+                        semestre);
+
+        universidad.agregarEstudiante(
+                estudiante);
+
+        System.out.println(
+                "Estudiante registrado.");
+    }
+
+    private static void buscarEstudiante(
+            Universidad universidad) {
+
+        String id =
+                Consola.leerTexto(
+                        "Ingrese ID: ");
+
+        Estudiante estudiante =
+                universidad.buscarEstudiante(id);
+
+        if (estudiante == null) {
+
+            System.out.println(
+                    "No encontrado");
+            return;
+        }
+
+        estudiante.mostrarInformacion();
+    }
+
+    private static void listarEstudiantes(
+            Universidad universidad) {
+
+        for (Estudiante e :
+                universidad.getEstudiantes()
+                        .values()) {
+
+            System.out.println(
+                    e.getId() +
+                    " - " +
+                    e.getNombre());
+        }
+    }
+
+    private static void cargarDatosDemo(
+            Universidad universidad) {
+
+        universidad.agregarEstudiante(
+                new Estudiante(
+                        "2024001",
+                        "Juan",
+                        "juan@correo.com",
+                        3));
+
+        universidad.agregarEstudiante(
+                new Estudiante(
+                        "2024002",
+                        "Maria",
+                        "maria@correo.com",
+                        5));
+
+        universidad.agregarMateria(
+                new Materia(
+                        "CALC101",
+                        "Calculo I",
+                        30,
+                        4));
+
+        universidad.agregarMateria(
+                new Materia(
+                        "PROG101",
+                        "Programacion I",
+                        30,
+                        4));
+
+        universidad.agregarAula(
+                new Aula("A101"));
+
+        universidad.agregarAula(
+                new Aula("A102"));
+    }
+}
